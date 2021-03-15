@@ -28,4 +28,32 @@ class BinarySearchTest {
         assertThat(BinarySearch.search(5, list), Matchers.equalTo(searchResult));
     }
 
+    @Test
+    void singleElmNotInSeq(){
+        list = new int[]{5};
+        searchResult.setPosition(-1);
+        assertThat(BinarySearch.search(3, list), Matchers.equalTo(searchResult));
+    }
+
+    @Test
+    void elmFirstInSeq() {
+        list = new int[]{5, 6, 7, 8, 9};
+        searchResult.setPosition(1);
+        assertThat(BinarySearch.search(5, list), Matchers.equalTo(searchResult));
+    }
+
+    @Test
+    void elmLastInSeq() {
+        list = new int[]{5, 6, 7, 8, 9};
+        searchResult.setPosition(list.length);
+        assertThat(BinarySearch.search(9, list), Matchers.equalTo(searchResult));
+    }
+
+    @Test
+    void elmMiddleInSeq() {
+        list = new int[]{5, 6, 7, 8, 9};
+        searchResult.setPosition((int)list.length/2 + 1);
+        assertThat(BinarySearch.search(7, list), Matchers.equalTo(searchResult));
+    }
+
 }
